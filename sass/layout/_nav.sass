@@ -1,0 +1,127 @@
+.nav
+    position: sticky
+    top: 0
+    font-size: 14px
+    background-color: $white
+    z-index: 1
+    border-bottom: 1px solid $lightgray
+
+.nav__container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    align-items: center
+    max-width: 1600px
+    padding: 0
+
+.nav__logo
+    margin: .5rem
+
+.nav__hamburger
+    height: 41px
+    width: 56px
+    position: relative
+    cursor: pointer
+
+.nav__hamburger-line
+    height: 6px
+    border-radius: 3px
+    position: absolute
+    background-color: $orange
+    &:nth-of-type(1)
+        top: 0
+        left: 35%
+        right: 0
+    &:nth-of-type(2)
+        top: calc(100% / 3 - 2px)
+        width: 100%
+    &:nth-of-type(3)
+        top: calc(100% / 1.5 - 4px)
+        width: 100%
+    &:nth-of-type(4)
+        top: calc(100% - 6px)
+        left: 0
+        right: 35%
+
+.nav__list
+    position: fixed
+    width: 60%
+    height: 100vh
+    top: 0
+    left: 40%
+    right: 0
+    background-color: $orange
+    color: $white
+    z-index: 1
+    padding: 1em 0
+    transition: .2s ease-out
+    // transform: translateX(20vw)
+    &.hidden
+        left: 100%
+
+.nav-list-item-close
+    position: absolute
+    top: 0
+    right: .25rem
+    color: $black
+    font-size: 4em
+    z-index: 2
+    padding: 0 .25em
+    cursor: pointer
+
+.nav__list-item
+    line-height: 3em
+    text-transform: uppercase
+    padding-left: 2.5rem
+    transition: padding .1s
+
+@media ($bp-landscape)
+    .nav__list
+        left: 70%
+        width: 30%
+
+@media ($bp-desktop-large)
+    // .nav.smaller-padding .nav__list-item
+    //         padding: 0 1.25rem
+    .nav__container
+        justify-content: space-between
+        
+    .nav__hamburger, .nav-list-item-close
+        display: none
+
+    .nav__list
+        position: static
+        left: auto
+        right: auto
+        top: auto
+        display: inline-flex
+        width: auto
+        height: auto
+        background-color: transparent
+        transform: none
+        padding: 0
+        color: $black
+        --left: attr(data-pos-left)
+        // --right: attr(data-pos-right)
+        --width: 0
+        &::after
+            content: '' //'var(--left) + ' ' + var(--right)'
+            position: absolute
+            // left: attr(data-pos-left)
+            // right: attr(data-pos-right)
+            left: var(--left)
+            // right: var(--right)
+            width: var(--width)
+            bottom: 0
+            background-color: $orange
+            transition: .1s ease-in
+        &:hover::after
+            height: 4px
+
+    .nav__list-item
+        // padding: 1.5rem .75rem
+        padding: 0 1.25rem
+        font-weight: 700
+        cursor: pointer
+        &:hover
+            color: $orange

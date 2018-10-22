@@ -1,0 +1,70 @@
+.testimonials
+    text-align: center
+    background-color: $darkblue
+
+.testimonials__images
+    display: flex
+    justify-content: space-between
+    max-width: 450px
+    margin: 0 auto
+
+.testimonials__image-wrapper
+    flex-basis: 28%
+    cursor: pointer
+    transition: .2s
+    &.active 
+        transform: scale(1.1)
+        & .testimonials__image
+            border-color: $white
+
+.testimonials__image
+    width: 100%
+    border-radius: 50%
+    border: 5px solid $lightblue
+    transition: .1s
+
+.testimonials__name-wrapper, .testimonials__quote
+    display: none
+    opacity: 0
+    height: 0
+    padding: 1rem 0
+    transition: .2s
+    &.active
+        display: block
+        opacity: 1
+        height: 100%
+
+.testimonials__quotes
+    max-width: 900px
+    margin: 0 auto
+    border: 1px solid $white
+    padding: 0 1rem
+    text-align: justify
+
+.logos
+    background-color: #f5f5f5
+    img
+        width: 183%
+
+@media ($bp-landscape)
+    .logos img 
+        width: 100%
+
+@media ($bp-tablet)
+    .testimonials__images
+        padding-top: 2rem
+        
+    .testimonials__name-wrapper, .testimonials__quote
+        padding: 2rem 0
+        line-height: 1.75em
+
+@media ($bp-desktop-small)
+    .testimonials__quote
+        padding: 2rem 3rem
+
+@media ($bp-desktop-large)
+    .testimonials__name-wrapper, .testimonials__quote
+        padding: 3rem
+
+    .testimonials__image-wrapper:hover .testimonials__image
+        border-color: $white

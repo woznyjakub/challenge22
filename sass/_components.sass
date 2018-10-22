@@ -1,0 +1,78 @@
+.main-container
+    max-width: 1920px
+    margin: 0 auto
+
+.flex-list
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+.container
+    max-width: 1280px
+    margin: 0 auto
+    padding: 0 1rem
+
+.btn
+    padding: .5rem 2.5rem
+    font-size: 1rem
+    color: $white
+    background-color: $blue
+    line-height: 3rem
+    text-transform: uppercase
+    border-style: none
+    border-radius: .25rem
+    cursor: pointer
+    transition: .15s
+    i
+        padding-left: .5rem
+
+.subheading, .heading
+    padding: .5rem 0
+    color: $darkgray
+    font-weight: 700
+    text-transform: uppercase
+
+.description
+    padding: .25rem 0
+    color: $gray
+
+.line-rect
+    width: 50px
+    height: 3px
+    background-color: $lightblue
+    margin: 1.5rem auto
+
+.heading--white, .subheading--white, .description--white
+    color: $white
+    font-weight: 400
+
+.line-rect--white
+    background-color: $white
+    
+@media ($bp-desktop-large)
+    .btn:hover
+        background-color: $orange
+
+    .heading
+        font-size: 2.5em
+
+.padding-y-responsive
+    padding-top: 1rem
+    padding-bottom: 1rem
+
+@media ($bp-tablet)
+    .padding-y-responsive
+        padding-top: 3rem
+        padding-bottom: 3rem
+
+@media ($bp-desktop-large)
+    .padding-y-responsive
+        padding-top: 5rem
+        padding-bottom: 5rem
+
+.barely-visible-text--white
+    font-size: .75em
+    color: $white
+    text-transform: uppercase
+    padding: .25rem 0
+    font-weight: 400

@@ -1,0 +1,146 @@
+.services
+    font-size: 14px
+
+.services__features-wrapper
+    font-size: 12px
+    background-image: linear-gradient(90deg, $darkblue 0%, $darkblue 50%, $lightblue 50.001%, $lightblue 100%)
+
+.services__features
+    // display: flex
+    // flex-wrap: wrap
+    max-width: 1366px
+    margin: 0 auto
+
+.services__feature
+    // flex-grow: 1
+    flex-basis: calc(100% / 3)
+    padding: 1rem .25rem
+    // padding: 3rem 1.5rem
+    color: $white
+    text-transform: uppercase
+    text-align: center
+    +flex-centered
+    flex-direction: column
+    i
+        font-size: 2em
+        padding-bottom: 1rem
+    &:nth-of-type(odd)
+        background-color: $lightblue
+    &:nth-of-type(even)
+        background-color: $darkblue
+
+// .services__list
+//     padding-top: 1rem
+//     padding-bottom: 1rem
+
+.services__list-item
+    +flex-item(17%, 83%)
+    padding: 1rem 0
+    &:nth-last-of-type(5), &:nth-last-of-type(4), &:nth-last-of-type(3), &:nth-last-of-type(2), &:nth-last-of-type(1)
+        display: none
+
+.services__list-icon
+    +icon-style(1.5rem, $orange, $white)
+    font-size: 1rem
+
+.video__wrapper
+    overflow: hidden
+    position: relative
+    min-height: 100vw
+
+.video
+    position: absolute
+    left: -7%
+    top: 50%
+    transform: translateY(-50%)
+    width: 240%
+
+.video__subheading
+    +absolutely-centered
+    background-color: rgba(0,0,0,.7)
+    color: $white
+    width: 100%
+    text-align: center
+    padding: 1em 0
+    font-size: 1em
+    font-weight: 400
+    animation: video-headings 21s linear infinite
+    opacity: 0
+    &:nth-of-type(2)
+        animation-delay: 7s
+    &:nth-of-type(3)
+        animation-delay: 14s
+
+@keyframes video-headings
+    0%
+        opacity: 0
+    5%
+        opacity: 1
+    23%
+        opacity: 1
+    28%
+        opacity: 0
+
+@media ($bp-landscape)
+    .services__feature
+        padding: 1.5rem .75rem
+
+    .services__list
+        justify-content: space-between
+
+    .services__list-item
+        flex-basis: 49%
+
+    .video__wrapper
+        min-height: 40vw
+
+    .video
+        width: 185%
+        
+@media ($bp-tablet)
+    .services__features
+        flex-wrap: nowrap
+
+    .services__feature
+        flex-basis: calc(100% / 6)
+
+    // .services__list
+    //     padding-top: 3rem
+    //     padding-bottom: 3rem
+
+    .services__list-item
+        &:nth-last-of-type(5), &:nth-last-of-type(4)
+            display: flex
+
+    .video
+        width: 155%
+        
+    .video__subheading
+        font-size: 1.75em
+
+@media ($bp-desktop-small)
+    .services__feature
+        padding: 4rem 1.5rem
+        i
+            font-size: 3em
+
+    .services__list-item
+        flex-basis: 33%
+
+    .services__icon-wrapper
+        text-align: center
+
+    .video
+        width: 115%
+
+@media ($bp-desktop-large)
+    // .services__list
+    //     padding-top: 5rem
+    //     padding-bottom: 5rem
+
+    .services__list-item
+        &:nth-last-of-type(3), &:nth-last-of-type(2), &:nth-last-of-type(1)
+            display: flex
+
+    .video__wrapper
+        min-height: 25vw

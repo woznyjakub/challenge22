@@ -1,0 +1,126 @@
+// minibar is beyond of header tag
+.minibar
+    line-height: 1.5em
+    font-size: 14px
+    background-color: $darkblue
+
+.minibar__container
+    display: flex
+    align-items: center
+    justify-content: space-around
+    max-width: 1600px
+    padding: .25rem 0
+
+.minibar__contacts
+    color: $white
+
+.minibar__contact
+    display: block
+    text-indent: .25rem
+    &:first-of-type
+        padding-right: 1rem
+
+.minibar__icons
+    text-align: right
+
+.minibar__icon--raw
+    padding-right: .25rem
+
+.minibar__icon--round
+    +icon-style(1rem ,$white, $darkblue)
+
+// header
+.header
+    background: 50% 50% / cover
+    min-height: 75vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 2rem 0
+    position: relative
+    z-index: -1
+
+.header__wrapper
+    text-align: center
+    color: $white
+    font-size: 24px
+    // width: 80vw
+    max-width: 400px
+    margin: 0 auto
+
+.header__heading
+    text-transform: uppercase
+    font-size: 1.33em
+    .blue
+        color: $lightblue
+
+.header__subheading
+    margin: 2rem 0
+
+@media ($bp-landscape)
+    .minibar__contact
+        display: inline
+
+@media ($bp-tablet)
+    .header
+        padding: 6rem 0
+        
+    .header__wrapper
+        max-width: 640px
+
+    .header__heading
+        font-size: 2.75em
+
+    .header__subheading
+        margin: 4rem 0
+
+    .header__scroll-anim
+        position: absolute
+        left: 50%
+        bottom: 1rem
+        transform: translateX(-50%)
+        width: 1.5rem
+        height: 3rem
+        border: 1px solid $white
+        border-radius: .75rem
+        cursor: pointer
+        &::after
+            content: ''
+            position: absolute
+            left: 50%
+            transform: translateX(-50%)
+            width: 2px
+            height: 12px
+            border-radius: 1px
+            background-color: $white
+            animation: mouse-blob 2s ease-in infinite
+
+@keyframes mouse-blob
+    0%, 10% 
+        top: 10%
+        opacity: 0
+    30%
+        opacity: .9
+    70%
+        opacity: .9
+    90%, 100%
+        top: calc(100% - 12px)
+        opacity: 0
+
+@media (max-width: 1199px)
+    .header
+        background-image: url('../img/header-mobile.jpg')
+
+@media ($bp-desktop-large)
+    .minibar__container
+        justify-content: space-between
+        padding-left: 2rem
+        padding-right: 2rem
+
+    .header
+        background-image: url('../img/header.jpg')
+        z-index: auto
+
+    .header__wrapper
+        max-width: 1200px
+

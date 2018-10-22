@@ -1,0 +1,100 @@
+.portfolio
+    text-align: center
+
+.portfolio__categories-button
+    flex-basis: 75%
+    margin: .5rem 0
+    line-height: 3em
+    padding: 0
+    color: $black
+    background-color: transparent
+    &.active
+        color: $white
+        background-color: $blue
+// .portfolio__projects
+
+.portfolio__project
+    flex-basis: 90%
+    margin-top: 1rem
+    padding: .5rem
+    box-shadow: 0 0 8px $black
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        left: .5rem
+        right: .5rem
+        top: .5rem
+        bottom: 100%
+        background-color: $lightblue
+        transition: .7s $scale-y-timing-function
+    &.active
+        &::before
+            bottom: .5rem
+        & .portfolio__project-icons-wrapper
+            opacity: 1
+            transition-delay: .4s
+
+.portfolio__image
+    width: 100%
+
+.portfolio__project-icons-wrapper
+    +absolutely-centered
+    width: 100%
+    opacity: 0
+    transition: .3s
+
+.portfolio__icon
+    +icon-style(2rem, $white, $darkblue)
+    font-size: 1.5rem
+    cursor: pointer
+
+.profolio__subheading
+    color: $white
+
+.profolio__subdescription
+    color: $white
+    
+.portfolio__bottom-button
+    margin-top: 1rem
+
+@media ($bp-landscape)
+    .portfolio__categories-buttons
+        justify-content: space-between
+
+    .portfolio__categories-buttons, .portfolio__projects
+        // justify-content: space-between
+        padding: 0 1rem
+
+    .portfolio__categories-button, .portfolio__project
+        flex-basis: calc(50% - 2rem)
+
+    .portfolio__project
+        margin: 1rem 1rem 0
+@media ($bp-tablet)
+    .portfolio__categories-button, .portfolio__project
+        flex-basis: calc(100% / 3 - 2rem)
+
+    .portfolio__categories-buttons
+        justify-content: center
+
+    .portfolio__categories-button
+        flex-basis: auto
+        padding: 0 1rem
+
+    .portfolio__bottom-button
+        margin-top: 3rem
+
+@media ($bp-desktop-large)
+    .portfolio__categories-button:hover:not(.active)
+        background-color: transparent
+    .portfolio__project:hover
+        &::before
+            bottom: .5rem
+        & .portfolio__project-icons-wrapper
+            opacity: 1
+            transition-delay: .4s
+
+    .portfolio__bottom-button
+        margin-top: 5rem
+        

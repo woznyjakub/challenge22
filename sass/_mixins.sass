@@ -1,0 +1,26 @@
+=flex-item($item1-width, $item2-width)
+    display: flex
+    & > *:first-of-type
+        flex-basis: $item1-width
+    & > *:last-of-type
+        flex-basis: $item2-width
+
+=icon-style($font-size, $bg-color, $font-color)
+    width: $font-size * 1.6
+    line-height: $font-size * 1.6
+    font-size: $font-size
+    background-color: $bg-color
+    color: $font-color
+    border-radius: 50%
+    text-align: center
+
+=flex-centered()
+    display: flex
+    justify-content: center
+    align-items: center
+
+=absolutely-centered()
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
