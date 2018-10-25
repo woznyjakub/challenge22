@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Smiley</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.min.css">
@@ -14,6 +15,7 @@
 <body>
     <div class="main-container">
         <aside class="minibar">
+            <!-- styles in _header.sass -->
             <div class="minibar__container container">
                 <div class="minibar__contacts">
                     <span class="minibar__contact"><i class="minibar__icon--raw fas fa-phone"></i> 123 456 7890</span>
@@ -41,13 +43,13 @@
                 </div>
                 <ul class="nav__list hidden">
                     <li class="nav-list-item-close"><i class="fas fa-times"></i></li>
-                    <li class="nav__list-item">Home</li>
-                    <li class="nav__list-item">Services</li>
-                    <li class="nav__list-item">About</li>
-                    <li class="nav__list-item">Portfolio</li>
-                    <li class="nav__list-item">Pricing</li>
-                    <li class="nav__list-item">Blog</li>
-                    <li class="nav__list-item">Contact us</li>
+                    <li class="nav__list-item" data-scroll-to="minibar">Home</li>
+                    <li class="nav__list-item" data-scroll-to="services">Services</li>
+                    <li class="nav__list-item" data-scroll-to="portfolio">Portfolio</li>
+                    <li class="nav__list-item" data-scroll-to="team">About</li>
+                    <li class="nav__list-item" data-scroll-to="pricing">Pricing</li>
+                    <li class="nav__list-item" data-scroll-to="blog">Blog</li>
+                    <li class="nav__list-item" data-scroll-to="footer">Contact us</li>
                 </ul>
             </div>
         </nav>
@@ -56,7 +58,7 @@
                 <h1 class="header__heading"><span class="blue">Smiley</span> creative <span class="mobile-breakline"> multi-purpose</span></h1>
                 <p class="header__subheading">Primis vocent comprehensam an vix, qui ferii alterum appeared id.</p>
                 <button class="btn header__btn">Learn more <i class="fas fa-long-arrow-alt-right"></i></button>
-                <div class="header__scroll-anim"></div>
+                <div class="header__scroll-anim" data-scroll-to="services"></div>
             </div>
         </header>
         <section class="services">
@@ -364,33 +366,33 @@
                     </div>
                 </div>
             </div>
-            <div class="counter padding-y-responsive">
+            <div class="counter">
                 <div class="counter__items container flex-list">
                     <div class="counter__item">
                         <span class="counter__content">
                             <i class="fas fa-car"></i>
-                            <span class="counter__number">518</span>
+                            <span class="counter__number"data-count-to="518"></span>
                         </span>
                         <p class="description counter__description">Projects delivered</p>
                     </div>
                     <div class="counter__item">
                         <span class="counter__content">
                             <i class="fas fa-globe-americas"></i>
-                            <span class="counter__number">177</span>
+                            <span class="counter__number"data-count-to="177"></span>
                         </span>
                         <p class="description counter__description">Web design projects</p>
                     </div>
                     <div class="counter__item">
                         <span class="counter__content">
                             <i class="far fa-clock"></i>
-                            <span class="counter__number">2465</span>
+                            <span class="counter__number"data-count-to="2465"></span>
                         </span>
                         <p class="description counter__description">Total hours</p>
                     </div>
                     <div class="counter__item">
                         <span class="counter__content">
                             <i class="fas fa-coffee"></i>
-                            <span class="counter__number">7580</span>
+                            <span class="counter__number" data-count-to="7580"></span>
                         </span>
                         <p class="description counter__description">Cups of coffee</p>
                     </div>
@@ -448,13 +450,112 @@
                 </div>
             </div>
         </section>
-        <!-- styles for .logos in _testimonials.sass -->
-        <aside class="logos padding-y-responsive">
+        <aside class="logos">
+            <!-- styles for .logos in _testimonials.sass -->
             <div class="container">
                 <img src="img/logos.jpg" alt="companies' logos">
             </div>
         </aside>
-        <aside style="background-color: #444;min-height: 130vh"></aside>
+        <section class="pricing padding-y-responsive container">
+            <h1 class="heading">Pricing table</h1>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, quis!</p>
+            <div class="line-rect"></div>
+            <div class="pricing__table flex-list">
+                <div class="pricing__cell">
+                    <h2 class="subheading">Basic</h2>
+                    <p class="description">Suitable for home network</p>
+                    <p class="pricing__price"><span class="big">$1099/</span> Month</p>
+                    <p class="barely-visible-text">1 unique concept</p>
+                    <p class="barely-visible-text">1 revisition</p>
+                    <p class="barely-visible-text">No Logo design</p>
+                    <p class="barely-visible-text">limited customer support</p>
+                    <p class="barely-visible-text">No business days</p>
+                    <button class="btn">Order</button>
+                </div>
+                <div class="pricing__cell">
+                    <h2 class="subheading">Standard</h2>
+                    <p class="description">Suitable for small company</p>
+                    <p class="pricing__price"><span class="big">$1499/</span> Month</p>
+                    <p class="barely-visible-text">1 unique concepts</p>
+                    <p class="barely-visible-text">2 revisitions</p>
+                    <p class="barely-visible-text">Logo design</p>
+                    <p class="barely-visible-text">24/7 customer support</p>
+                    <p class="barely-visible-text">1-2 business days</p>
+                    <button class="btn">Order</button>
+                </div>
+                <div class="pricing__cell">
+                    <h2 class="subheading">Enterprice</h2>
+                    <p class="description">Suitable for large company</p>
+                    <p class="pricing__price"><span class="big">$2099/</span> Month</p>
+                    <p class="barely-visible-text">3 unique concepts</p>
+                    <p class="barely-visible-text">5 revisitions</p>
+                    <p class="barely-visible-text">Logo design</p>
+                    <p class="barely-visible-text">24/7 customer support</p>
+                    <p class="barely-visible-text">3-5 business days</p>
+                    <button class="btn">Order</button>
+                </div>
+            </div>
+        </section>
+        <section class="blog padding-y-responsive container">
+            <h1 class="heading">Lastest news</h1>
+            <p class="description">Lorem ipsum dolor sit amet consectetur.</p>
+            <div class="line-rect"></div>
+            <div class="blog__articles flex-list">
+                <div class="blog__article">
+                    <div class="blog__image-wrapper">
+                        <img src="img/news1.jpg" alt="news default image">
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                    <div class="blog__text-wrapper">
+                        <h2 class="subheading">Boost your business</h2>
+                        <h3 class="barely-visible-text">Tutorial by Faridul Haque</h3>
+                        <p class="description">Lorem ipsum dolor sit amet constetur adipisicing elit. Nihil harum
+                            laborum.</p>
+                    </div>
+                </div>
+                <div class="blog__article">
+                    <div class="blog__image-wrapper">
+                        <img src="img/news1.jpg" alt="news default image">
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                    <div class="blog__text-wrapper">
+                        <h2 class="subheading">Aperiam ducimus veniam</h2>
+                        <h3 class="barely-visible-text">Tutorial by Angelina Fuad-Jolie</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores alias.</p>
+                    </div>
+                </div>
+                <div class="blog__article">
+                    <div class="blog__image-wrapper">
+                        <img src="img/news1.jpg" alt="news default image">
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                    <div class="blog__text-wrapper">
+                        <h2 class="subheading">Expedita ipsa quis quo</h2>
+                        <h3 class="barely-visible-text">Tutorial by Farhad Al Fuad</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error magnam.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="newsletter">
+            <div class="container padding-y-responsive">
+                <h1 class="heading">Get the lastest updates from us</h1>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, harum!</p>
+                <div class="line-rect"></div>
+                <input type="email" class="newsletter__email" placeholder="Your e-mail*">
+                <button class="btn newsletter__button">Subscribe <i class="fas fa-cloud-download-alt"></i></button>
+            </div>
+        </section>
+        <footer class="footer">
+            <p class="description description--white container">Coded by Jakub Woźny 2018</p>
+            <div class="footer__icons">
+                <a href="https://www.facebook.com/" target="_blank"><i class=" fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://plus.google.com/" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                <a href="https://www.vimeo.com/" target="_blank"><i class="fab fa-vimeo-v"></i></a>
+            </div>
+        </footer>
     </div>
     <script src="js/countUp.min.js"></script>
     <script src="js/anim.js"></script>

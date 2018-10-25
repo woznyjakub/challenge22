@@ -29,7 +29,6 @@
 .minibar__icon--round
     +icon-style(1rem ,$white, $darkblue)
 
-// header
 .header
     background: 50% 50% / cover
     min-height: 75vh
@@ -44,7 +43,6 @@
     text-align: center
     color: $white
     font-size: 24px
-    // width: 80vw
     max-width: 400px
     margin: 0 auto
 
@@ -117,10 +115,13 @@
         padding-left: 2rem
         padding-right: 2rem
 
+    .minibar__icon--round:hover
+        background-color: $orange
+        color: $white
+
     .header
         background-image: url('../img/header.jpg')
         z-index: auto
 
     .header__wrapper
         max-width: 1200px
-

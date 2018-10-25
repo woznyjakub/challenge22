@@ -60,6 +60,17 @@
 .counter
     background-color: $white
     font-size: 20px
+    padding: 1rem 0
+    transition: 1.5s $scale-y-timing-function
+    transform-origin: center top
+    transform: scaleY(0)
+    & *
+        opacity: 0
+    &.visible
+        transform: scaleY(1)
+        & *
+            opacity: 1
+            transition: opacity .3s 1.3s ease-out
 
 .counter__item
     padding-top: 1rem
@@ -114,3 +125,6 @@
         font-size: 1.25em
         &:hover
             color: $orange
+
+    .counter
+        padding: 2rem 0

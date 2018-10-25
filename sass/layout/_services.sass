@@ -6,16 +6,12 @@
     background-image: linear-gradient(90deg, $darkblue 0%, $darkblue 50%, $lightblue 50.001%, $lightblue 100%)
 
 .services__features
-    // display: flex
-    // flex-wrap: wrap
     max-width: 1366px
     margin: 0 auto
 
 .services__feature
-    // flex-grow: 1
     flex-basis: calc(100% / 3)
     padding: 1rem .25rem
-    // padding: 3rem 1.5rem
     color: $white
     text-transform: uppercase
     text-align: center
@@ -28,10 +24,6 @@
         background-color: $lightblue
     &:nth-of-type(even)
         background-color: $darkblue
-
-// .services__list
-//     padding-top: 1rem
-//     padding-bottom: 1rem
 
 .services__list-item
     +flex-item(17%, 83%)
@@ -104,10 +96,6 @@
     .services__feature
         flex-basis: calc(100% / 6)
 
-    // .services__list
-    //     padding-top: 3rem
-    //     padding-bottom: 3rem
-
     .services__list-item
         &:nth-last-of-type(5), &:nth-last-of-type(4)
             display: flex
@@ -134,10 +122,6 @@
         width: 115%
 
 @media ($bp-desktop-large)
-    // .services__list
-    //     padding-top: 5rem
-    //     padding-bottom: 5rem
-
     .services__list-item
         &:nth-last-of-type(3), &:nth-last-of-type(2), &:nth-last-of-type(1)
             display: flex

@@ -1,0 +1,15 @@
+.footer
+    text-align: center
+    background-color: $darkblue
+    padding: .5rem 0
+    .description
+        padding: .5rem 0
+    i
+        +icon-style(1.25rem, $white, $darkblue)
+        margin: .25rem
+        transition: .1s
+
+@media ($bp-desktop-large)
+    .footer i:hover
+        background-color: $orange
+        color: $white

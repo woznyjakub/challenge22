@@ -1,97 +1,102 @@
 const navList = document.querySelector('.nav__list')
 
-document.querySelectorAll('.nav__hamburger, .nav-list-item-close').forEach((elem) => {
+/* nav */
+document.querySelectorAll('.nav__hamburger, .nav-list-item-close').forEach(elem => {
     elem.addEventListener('click', () => {
         document.querySelector('.nav__list').classList.toggle('hidden')
-        // document.querySelector('.main-container').classList.toggle('active')
     })
 })
-
 
 // nav hover effect
-document.querySelectorAll('.nav__list-item').forEach((elem) => {
+document.querySelectorAll('.nav__list-item').forEach(elem => {
     elem.addEventListener('mouseover', function () {
         const elemRect = this.getBoundingClientRect()
-        // const leftEdge = elemRect.left
-        // console.log(leftEdge);
-        // console.log(document.querySelector('.nav__list::after'));
-        let leftEdge = elemRect.left
-        let rightEdge = elemRect.right
-        let elemWidth = this.offsetWidth
-        // console.log(leftEdge.toFixed() + "  " + elemWidth);
-
-        // navList.setAttribute('data-pos-left', leftEdge.toFixed() + 'px')
-        // navList.setAttribute('data-pos-right', rightEdge.toFixed() + 'px')
-        // navList.setAttribute('data-width-start', rightEdge.toFixed() + 'px')
-
-        navList.style.setProperty('--left', leftEdge.toFixed() + 'px', '')
-        // navList.style.setProperty('--right', rightEdge.toFixed() + 'px', '')
-        navList.style.setProperty('--width', rightEdge.toFixed() - leftEdge.toFixed() + 'px', '')
-
-
+        navList.style.setProperty('--left', `${elemRect.left.toFixed()}px`)
+        navList.style.setProperty('--width', `${elemRect.right.toFixed() - elemRect.left.toFixed()}px`)
     })
 })
 
-// nav smaller padding when sticky
-// const nav = document.querySelector('.nav')
-// window.addEventListener('scroll', () => {
-//     if (window.scrollY == nav.offsetTop) nav.classList.add('smaller-padding')
-//     else nav.classList.remove('smaller-padding')
-// })
+// scrolling on click
+document.querySelectorAll('[data-scroll-to]').forEach(elem => {
+    elem.addEventListener('click', function () {
+        window.scroll({
+            top: document.querySelector(`.${elem.getAttribute('data-scroll-to')}`).offsetTop - document.querySelector('.nav').offsetHeight,
+            left: 0,
+            behavior: 'smooth'
+        })
+        navList.classList.add('hidden')
+    })
+})
 
 /* section 'portfolio' */
-const sectionPortfolio = document.querySelector('.portfolio')
 const pfButtons = document.querySelectorAll('.portfolio__categories-button')
 const pfProjects = document.querySelectorAll('.portfolio__project')
 
-pfProjects.forEach((elem) => {
+pfProjects.forEach(elem => {
     if (window.innerWidth < 1200) elem.addEventListener('click', function () {
         this.classList.toggle('active')
     })
 })
 
-pfButtons.forEach((elem) => {
+pfButtons.forEach(elem => {
     elem.addEventListener('click', function () {
-        pfButtons.forEach((elem) => {
+        pfButtons.forEach(elem => {
             elem.classList.remove('active')
         })
         this.classList.toggle('active')
         const filterType = this.getAttribute('data-filter')
-        console.log(filterType);
-        // const setFilter = () => {
-        pfProjects.forEach((elem) => {
+        pfProjects.forEach(elem => {
             elem.style.display = 'none'
-            // if (elem.getAttribute('data-filter') === 'all') elem.style.display = 'block'
-            // else if (filterType === 'all') elem.style.display = 'block'
-            // else if (elem.getAttribute('data-filter') === filterType) elem.style.display = 'block'
             if (elem.getAttribute('data-filter') === 'all' || filterType === 'all' || elem.getAttribute('data-filter') === filterType) elem.style.display = 'block'
         })
-        // }
-        // setFilter()
     })
 })
 
+/* counter in section 'team' */
+const counterWrapper = document.querySelector('.counter')
+const countedElems = document.querySelectorAll('.counter__number')
+let countingExecuted = false
+window.addEventListener('scroll', () => {
+    if (window.scrollY + window.innerHeight - counterWrapper.offsetHeight / 2 > counterWrapper.offsetTop && window.scrollY - counterWrapper.offsetHeight / 2 < counterWrapper.offsetTop) {
+        counterWrapper.classList.add('visible')
+        if (!countingExecuted) {
+            setTimeout(() => {
+                countedElems.forEach(elem => {
+                    let options = {
+                        useEasing: true,
+                        useGrouping: true,
+                        separator: '',
+                        decimal: '.'
+                    }
+                    let demo = new CountUp(elem, 0, elem.getAttribute('data-count-to'), 0, 5, options)
+                    if (!demo.error) demo.start()
+                    else console.error(demo.error)
+                })
+            }, 1500)
+        }
+        countingExecuted = true
+    }
+})
+
 /* section 'testimonials' */
-document.querySelectorAll('.testimonials__image-wrapper').forEach((image) => {
+document.querySelectorAll('.testimonials__image-wrapper').forEach(image => {
     image.addEventListener('click', function () {
-        document.querySelectorAll('.testimonials__image-wrapper, .testimonials__name-wrapper, .testimonials__quote').forEach((elem) => {
+        document.querySelectorAll('.testimonials__image-wrapper, .testimonials__name-wrapper, .testimonials__quote').forEach(elem => {
             elem.classList.remove('active')
         })
         const thisId = this.getAttribute('data-id')
-        document.querySelectorAll(`.testimonials__image-wrapper:nth-of-type(${thisId}), .testimonials__name-wrapper:nth-of-type(${thisId}), .testimonials__quote:nth-of-type(${thisId})`).forEach((elem) => {
+        document.querySelectorAll(`.testimonials__image-wrapper:nth-of-type(${thisId}), .testimonials__name-wrapper:nth-of-type(${thisId}), .testimonials__quote:nth-of-type(${thisId})`).forEach(elem => {
             elem.classList.add('active')
         })
     })
 })
-
-
 
 /* mobile effects clear */
 window.addEventListener('resize', () => {
     if (window.innerWidth >= 1200) {
         document.querySelector('.main-container').classList.remove('active')
         document.querySelector('.nav__list').classList.add('hidden')
-        pfProjects.forEach((elem) => {
+        pfProjects.forEach(elem => {
             elem.classList.remove('active')
         })
     }

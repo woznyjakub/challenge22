@@ -1,0 +1,30 @@
+.newsletter
+    text-align: center
+    & .padding-y-responsive
+        padding-top: 0
+
+.newsletter__button, .newsletter__email
+    display: block
+    margin: 2rem auto
+
+.newsletter__button
+    border-radius: 2rem
+    i
+        font-size: 1.75em
+        vertical-align: -.25rem
+
+.newsletter__email
+    width: 100%
+    max-width: 750px
+    border-style: none
+    border-bottom: 2px solid $lightblue
+    padding: .5rem
+    font-size: 1.25em
+    color: $gray
+    text-align: center
+    &:focus
+        outline: none
+
+@media ($bp-tablet)
+    .newsletter__email
+        width: 65%

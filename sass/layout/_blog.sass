@@ -1,0 +1,42 @@
+.blog
+    text-align: center
+    padding-top: 0
+
+.blog__article
+    flex-basis: 90%
+    text-align: left
+    &:last-of-type
+        display: none
+    img
+        width: 100%
+
+.blog__image-wrapper
+    position: relative
+    i
+        +icon-style(1.6rem, $blue, $white)
+        font-size: 1.25rem
+        position: absolute
+        right: 1.25rem
+        bottom: 0
+        transform: translateY(50%)
+        cursor: pointer
+
+.blog__text-wrapper
+    padding: 1rem .25rem
+
+@media ($bp-landscape)
+    .blog__articles
+        justify-content: space-between
+
+    .blog__article
+        flex-basis: 49%
+
+@media ($bp-tablet)
+    .blog__article
+        flex-basis: 31%
+        &:last-of-type
+            display: block
+
+@media ($bp-desktop-large)
+    .blog__image-wrapper i:hover
+        background-color: $orange
