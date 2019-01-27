@@ -1,4 +1,5 @@
-# challenge35
+# challenge22
+
 PSD to HTML project from Weekly WebDev Challenge facebook group https://www.facebook.com/groups/940002776068923/ made using HTML, SASS, JavaScript.
 
 Live: https://woznyjakub.github.io/challenge22/

@@ -42,13 +42,15 @@
 .header__wrapper
     text-align: center
     color: $white
-    font-size: 24px
+    font-size: 14px
     max-width: 400px
     margin: 0 auto
 
 .header__heading
     text-transform: uppercase
-    font-size: 1.33em
+    font-size: 1.75em
+    max-width: 280px
+    margin: 0 auto
     .blue
         color: $lightblue
 
@@ -59,15 +61,20 @@
     .minibar__contact
         display: inline
 
+    .header__wrapper
+        font-size: 15px
+
 @media ($bp-tablet)
     .header
         padding: 6rem 0
         
     .header__wrapper
         max-width: 640px
+        font-size: 24px
 
     .header__heading
-        font-size: 2.75em
+        font-size: 2em
+        max-width: 500px
 
     .header__subheading
         margin: 4rem 0
@@ -125,3 +132,7 @@
 
     .header__wrapper
         max-width: 1200px
+
+    .header__heading
+        max-width: initial
+        font-size: 2.5em

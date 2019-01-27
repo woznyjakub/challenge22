@@ -15,17 +15,18 @@
     padding: 0
 
 .nav__logo
-    margin: .5rem
+    margin: .25rem
+    max-width: 128px
 
 .nav__hamburger
-    height: 41px
-    width: 56px
+    height: 27px
+    width: 40px
     position: relative
     cursor: pointer
 
 .nav__hamburger-line
-    height: 6px
-    border-radius: 3px
+    height: 4px
+    border-radius: 2px
     position: absolute
     background-color: $orange
     &:nth-of-type(1)
@@ -62,7 +63,7 @@
     position: absolute
     top: 0
     right: .25rem
-    color: $black
+    color: $superlightgray
     font-size: 4em
     z-index: 2
     padding: 0 .25em
@@ -79,10 +80,15 @@
         left: 70%
         width: 30%
 
+@media ($bp-tablet)
+    .nav__logo
+        max-width: 192px
+
 @media ($bp-desktop-large)
     .nav__container
         justify-content: space-between
-        
+        padding: 0 1rem
+
     .nav__hamburger, .nav-list-item-close
         display: none
 
